@@ -20,23 +20,21 @@
 
 ## items テーブル
 
-| Column           | Type       | Options                        |
-| ---------------- | ---------- | ------------------------------ |
-| image            | binary     | null: false                    |
-| name             | string     | null: false                    |
-| description      | text       | null: false                    |
-| category         | string     | null: false                    |
-| status_info      | string     | null: false                    |
-| shipping_charges | integer    | null: false                    |
-| shipping_area    | string     | null: false                    |
-| days_to_ship     | string     | null: false                    |
-| price            | integer    | null: false                    |
-| seller           | references | null: false, foreign_key: true |
-| buyer            | references | null: false, foreign_key: true |
+| Column             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| name               | string     | null: false                    |
+| description        | text       | null: false                    |
+| category_id        | integer    | null: false                    |
+| status_info_id     | integer    | null: false                    |
+| shipping_charge_id | integer    | null: false                    |
+| shipping_area_id   | integer    | null: false                    |
+| days_to_ship_id    | integer    | null: false                    |
+| price              | integer    | null: false                    |
+| user               | references | null: false, foreign_key: true |
+
 
 ### Association
 - belongs_to :user
-- has_one    :shipping_address
 - has_one    :purchase_record
 
 
@@ -44,16 +42,16 @@
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
-| postal_code   | integer    | null: false                    |
-| prefecture    | string     | null: false                    |
+| postal_code   | string    | null: false                    |
+| shipping_area | string     | null: false                    |
 | city          | string     | null: false                    |
 | street_no     | string     | null: false                    |
-| phone_no      | integer    | null: false                    |
+| phone_no      | string     | null: false                    |
 | building_name | string     |                                |
-| buyer         | references | null: false, foreign_key: true |
+| user         | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :item
+- has_one : purchase_record
 
 ## purchase_records テーブル
 
@@ -63,4 +61,5 @@
 | buyer  | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :item
+- belongs_to : shipping_address
+- belongs_to : user
