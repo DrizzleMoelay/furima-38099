@@ -48,18 +48,19 @@
 | street_no     | string     | null: false                    |
 | phone_no      | string     | null: false                    |
 | building_name | string     |                                |
-| user         | references | null: false, foreign_key: true |
+
 
 ### Association
-- has_one : purchase_record
+- belongs_to : purchase_record
 
 ## purchase_records テーブル
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
-| name   | references | null: false, foreign_key: true |
-| buyer  | references | null: false, foreign_key: true |
+| user   | references | null: false, foreign_key: true |
+| item   | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to : shipping_address
+- has_one    : shipping_address
 - belongs_to : user
+- belongs_to : item
