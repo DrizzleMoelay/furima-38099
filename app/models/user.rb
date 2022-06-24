@@ -7,7 +7,12 @@ class User < ApplicationRecord
   has_many :items
   has_many :purchase_records
 
-  validates :nickname, presence: true
+  validates :nickname,         presence: true
+  validates :family_name,      presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
+  validates :family_name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/   }
+  validates :first_name,       presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
+  validates :first_name_kana,  presence: true, format: { with: /\A[ァ-ヶー－]+\z/   }
+  validates :birth_day,        presence: true
 
   VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
   validates_format_of :password, with:  VALID_PASSWORD_REGEX, message: 'は半角英数を両方含む必要があります'
