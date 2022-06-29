@@ -38,7 +38,7 @@ RSpec.describe Item, type: :model do
       end
 
       it 'category_idに「---」が選択されている場合は出品できない' do
-        @item.category_id = '---'
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include "Category can't be blank"
       end
@@ -50,7 +50,7 @@ RSpec.describe Item, type: :model do
       end
 
       it 'status_info_idに「---」が選択されている場合は出品できない' do
-        @item.status_info_id = '---'
+        @item.status_info_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include "Status info can't be blank"
       end
@@ -62,7 +62,7 @@ RSpec.describe Item, type: :model do
       end
 
       it 'shipping_charge_idに「---」が選択されている場合は出品できない' do
-        @item.shipping_charge_id = '---'
+        @item.shipping_charge_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include "Shipping charge can't be blank"
       end
@@ -74,7 +74,7 @@ RSpec.describe Item, type: :model do
       end
 
       it 'shipping_area_idに「---」が選択されている場合は出品できない' do
-        @item.shipping_area_id = '---'
+        @item.shipping_area_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include "Shipping area can't be blank"
       end
@@ -87,7 +87,7 @@ RSpec.describe Item, type: :model do
       end
 
       it 'days_to_ship_idに「---」が選択されている場合は出品できない' do
-        @item.days_to_ship_id = '---'
+        @item.days_to_ship_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include "Days to ship can't be blank"
         
