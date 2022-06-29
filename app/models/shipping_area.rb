@@ -1,4 +1,4 @@
-class Shipping_area < ActiveHash::Base
+class ShippingArea < ActiveHash::Base
 
   self.data = [
     {id: 0, name: '---'},

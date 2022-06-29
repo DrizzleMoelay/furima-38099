@@ -1,4 +1,4 @@
-class Status_info < ActiveHash::Base
+class StatusInfo < ActiveHash::Base
 
   self.data = [
     { id: 1, name: '---' },
