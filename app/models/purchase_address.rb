@@ -1,6 +1,6 @@
 class PurchaseAddress
   include ActiveModel::Model
-  attr_accessor :postal_code, :shipping_area_id, :city, :street_no, :phone_no, :building_name, :purchase_record_id, :item_id, :user_id, :token
+  attr_accessor :postal_code, :shipping_area_id, :city, :street_no, :phone_no, :building_name, :item_id, :user_id, :token
 
   with_options presence: true do
     validates :item_id, :user_id, :city, :street_no, :token 
@@ -10,8 +10,8 @@ class PurchaseAddress
   end
 
   def save
-    purchase_record = PurchaseRecord.create(user_id: user_id, item_id: item_id)
-    ShippingAddress.create(postal_code: postal_code, shipping_area_id: shipping_area_id, city: city, street_no: street_no, phone_no: phone_no, building_name: building_name)
+    purchase_record = PurchaseRecord.create!(user_id: user_id, item_id: item_id)
+    ShippingAddress.create!(postal_code: postal_code, shipping_area_id: shipping_area_id, city: city, street_no: street_no, phone_no: phone_no, building_name: building_name, purchase_record_id: purchase_record.id)
   end
 
 end
