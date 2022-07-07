@@ -40,15 +40,15 @@
 
 ## shipping_addresses テーブル
 
-| Column             | Type       | Options                        |
-| ------------------ | ---------- | ------------------------------ |
-| postal_code        | string     | null: false                    |
-| shipping_charge_id | integer    | null: false                    |
-| city               | string     | null: false                    |
-| street_no          | string     | null: false                    |
-| phone_no           | string     | null: false                    |
-| purchase_record    | references | null: false, foreign_key: true |
-| building_name      | string     |                                |
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| postal_code      | string     | null: false                    |
+| shipping_area_id | integer    | null: false                    |
+| city             | string     | null: false                    |
+| street_no        | string     | null: false                    |
+| phone_no         | string     | null: false                    |
+| purchase_record  | references | null: false, foreign_key: true |
+| building_name    | string     |                                |
 
 
 ### Association
