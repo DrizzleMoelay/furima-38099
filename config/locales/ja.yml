@@ -20,4 +20,13 @@ ja:
         shipping_area_id: 発送元の地域
         days_to_ship_id: 発送までの日数
 
+  activemodel:
+    attributes:
+      purchase_address:
+        city: 市区町村
+        street_no: 番地
+        phone_no: 電話番号
+        postal_code: 郵便番号
+        shipping_area_id: 都道府県
+        token: クレジット情報
 
